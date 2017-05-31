@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta http-equiv="Cache-Control" content="no-cache">
+		<link rel="stylesheet" type="text/css" href="../../resources/css/base.css" />
+		<link rel="stylesheet" type="text/css" href="../../resources/libs/bootstrap/css/bootstrap.css" />
+		<link rel="stylesheet" type="text/css" href="../../resources/css/easydropdown.flat.css" />
+		<link rel="stylesheet" type="text/css" href="../../resources/css/common.css" />
+		<title>编辑</title>
+	</head>
+	<body class="bgff">
+		<form class="w-form tl" id="form">
+			<div class="w-input-group">
+				<label>店铺号</label>
+				<div class="input-con"><input type="text" maxlength="11" v-model="form.card_no" ></div>
+			</div>
+			<div class="w-input-group">
+				<label>店铺名称</label>
+				<div class="input-con"><input type="text" maxlength="11" v-model="form.phone_no" id="phone_no"></div>
+			</div>
+			<div class="w-input-group">
+				<label>入驻时间</label>
+				<div class="input-con"><input type="text" maxlength="10" v-model="form.real_name"></div>
+			</div>
+			<div class="w-input-group">
+				<label>到期时间</label>
+				<div class="input-con"><input type="text" maxlength="36" v-model="form.integral"></div>
+			</div>
+			<div class="w-input-group">
+				<label>标签1</label>
+				<div class="input-con"><input type="text" maxlength="36" v-model="form.integral"></div>
+			</div>
+			<div class="w-input-group">
+				<label>标签2</label>
+				<div class="input-con"><input type="text" maxlength="36" v-model="form.integral"></div>
+			</div>
+			<div class="w-input-group">
+				<label>标签3</label>
+				<div class="input-con"><input type="text" maxlength="36" v-model="form.integral"></div>
+			</div>
+			<div class="w-input-group">
+				<label>面积</label>
+				<div class="input-con"><input type="text" maxlength="36" v-model="form.integral" style="width: 120px;">平方米</div>
+			</div>
+			<div class="w-input-group">
+				<label>租金模式</label>
+				<div class="input-con">
+					<select tabindex="4" v-model="submitForm.project_name" id="project">
+						<option value="">无</option>
+						<option value="0">不适用</option>
+						<option value="1">抽成租金模式</option>
+						<option value="2">固定租金模式</option>
+					</select>
+				</div>
+			</div>
+			<div class="w-input-group" v-else>
+				<label>生效/失效</label>
+				<div class="input-con">
+					<span class="check_radio" style="padding-top: 8px;"><input type="radio" name="sx" v-model="form.statusList" value="1" >生效</span>
+					<span class="check_radio" style="padding-top: 8px;"><input type="radio" name="sx" v-model="form.statusList" value="1" >失效</span>
+				</div>
+			</div>
+			<div class="w-input-group">
+				<label>店铺描述</label>
+				<div class="input-con"><input type="text" maxlength="60" v-on:keyup="validateMoney" v-model="submitForm.description"></div>
+			</div>
+			<div class="w-input-group bnone mt20 mb10 tc js-footer-btn">
+				<span class="btn btn-primary input-sm js-submit" v-show="type==1">增加积分</span>
+				<span class="btn btn-primary input-sm js-submit" v-show="type==2">减少积分</span>
+				<span class="btn btn-default input-sm ml10">取消</span>
+			</div>
+		</form>
+		<script type="text/javascript" src="../../resources/require.js"></script>
+		<script type="text/javascript" src="../../resources/modules/vip/score.js"></script>
+	</body>
+
+</html>

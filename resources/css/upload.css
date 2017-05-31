@@ -1,0 +1,25 @@
+.quene {
+	position: absolute;
+	width: 500px;
+	padding: 10px;
+	background-color: #F4F5F9;
+	text-align: left;
+}
+.quene-quit {
+	margin-left: 20px;
+	cursor: pointer;
+}
+.quene .process {
+	width: 100%;
+	margin: 10px auto;
+	background-color: #E6E5EB;
+	height: 8px;
+}
+.quene .process-bar {
+	height: 100%;
+	width: 1%;
+	background-color: #00B254;
+}
+.quene-msg.error {
+	color: red;
+}

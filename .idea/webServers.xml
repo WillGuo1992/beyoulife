@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="f813abac-b285-40ac-9489-264368961b24" name="beyoulife_new" url="">
+        <fileTransfer host="101.201.100.92" port="21" rootFolder="/beyoulife_new" password="dfc0dfc3dfc4dfc2dfcbdfc3dfc8dfc3dfc4" username="jinhaibin">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" />
+          </advancedOptions>
+          <option name="port" value="21" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

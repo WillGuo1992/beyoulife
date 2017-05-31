@@ -1,0 +1,259 @@
+.search-panel {
+	height: auto;
+	padding: 20px 0;
+	text-align: left;
+}
+
+.search-panel .go_back {
+	display: inline-block;
+	vertical-align: middle;
+	width: 24px;
+	height: 24px;
+	background-image: url(../images/goback.png);
+	background-size: 100% 100%;
+	margin-left: 20px;
+	cursor: pointer;
+}
+
+th.switch {
+	text-align: center;
+}
+
+h2 {
+	font-size: 18px;
+	display: inline-block;
+	vertical-align: middle;
+	margin: 0 0 0 10px;
+	font-weight: 600;
+}
+
+.content-panel {
+	margin: 0 30px;
+	padding: 20px 15px;
+	background-color: #FFF;
+}
+
+.time-title {
+	font-size: 16px;
+}
+
+.single-panel {
+	height: auto;
+	display: none;
+	text-align: center;
+}
+
+.timecon-pos {
+	display: inline-block;
+	text-align: left;
+}
+
+.sale-datepicker {
+	text-align: center;
+}
+
+.sale-datepicker .datetimepicker {
+	display: inline-block;
+	position: relative;
+	float: none;
+	border: 1px solid #EEE;
+	padding: 0;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+	display: inline-block;
+	width: 14px;
+	height: 14px;
+	margin-top: 1px;
+	*margin-right: .3em;
+	line-height: 14px;
+	vertical-align: text-top;
+	background-image: url("../libs/bootstrap/bootstrap-datepicker/glyphicons-halflings.png");
+	background-position: 14px 14px;
+	background-repeat: no-repeat;
+}
+
+.icon-arrow-left {
+	background-position: -240px -96px;
+}
+
+.icon-arrow-right {
+	background-position: -264px -96px;
+}
+
+label {
+	font-weight: normal;
+}
+
+.checkbox-con {
+	margin: 15px 0;
+}
+
+.checkbox-con .title {
+	font-size: 16px;
+}
+
+.frm_radio_label,
+.frm_checkbox_label {
+	display: inline-block;
+	text-align: left;
+	cursor: pointer;
+	/*margin-left: 20px*/
+}
+
+.icon_radio {
+	background: url(../images/radio.png);
+	width: 16px;
+	height: 16px;
+	background-size: 100% 100%;
+	vertical-align: middle;
+	display: inline-block
+}
+
+.table-condensed> thead> tr> th,
+.table-condensed> tbody> tr> th,
+.table-condensed> tfoot> tr> th,
+.table-condensed> thead> tr> td,
+.table-condensed> tbody> tr> td,
+.table-condensed> tfoot> tr> td {
+	padding: 7px 13px;
+	border: 1px solid #EEE;
+	background-color: #FFF;
+	font-size: 16px;
+	font-weight: normal;
+	color: #AAA;
+}
+
+.table-condensed> tbody> tr> td.hasData {
+	color: #2E86C0;
+}
+
+.table-condensed> tbody> tr> td.hasData.active {
+	color: #FFF;
+}
+
+.datetimepicker table tr td.disabled,
+.datetimepicker table tr td.old,
+.datetimepicker table tr td.new,
+.datetimepicker table tr td.disabled:hover {
+	background-color: #EEEEEE;
+}
+
+.icon_radio.selected,
+.selected .icon_radio {
+	background-image: url(../images/radio_check.png);
+}
+
+.lbl_content {
+	font-size: 14px;
+}
+
+.radio-list {
+	margin-top: 10px;
+}
+
+.radio-list>div {
+	margin-top: 5px;
+}
+
+.upload {
+	display: inline-block;
+	margin: 20px 0;
+}
+
+.upload-title {
+	display: block;
+	margin-top: 30px;
+}
+
+.table-title {
+	display: block;
+	margin-top: 20px;
+}
+
+.table-con {
+	margin: 20px 0;
+}
+
+.input-group {
+	display: block;
+}
+
+.chooseFile {
+	margin-top: 10px;
+	margin-left: 0;
+	/*padding: 0 20px;*/
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.fileName {
+	display: none;
+	margin-top: 10px;
+	margin-right: 10px;
+	vertical-align: middle;
+}
+
+.chooseFile:active {
+	opacity: 0.6;
+}
+
+.input {
+	border: 1px solid #c2c2c2;
+	border-radius: 5px;
+	height: 30px;
+	line-height: 30px;
+}
+
+.cur-time {
+	color: #3185C1;
+}
+
+.SiteGoTopBox {
+	height: 0px;
+	position: fixed;
+	right: 30px;
+	bottom: 0px;
+	display: none;
+}
+
+.SiteGoTopBox a {
+	position: absolute;
+	bottom: 40px;
+	right: 0px;
+	width: 46px;
+	height: 43px;
+	background: url(../images/goTop.png) no-repeat 0px 0px;
+}
+
+.SiteGoTopBox a:hover {
+	background-position: 0px -43px;
+}
+
+.webuploader-pick {
+	position: relative;
+	display: inline-block;
+	cursor: pointer;
+	background: #2E86C0;
+	padding: 0 20px;
+	height: 38px;
+	line-height: 38px;
+	color: #fff;
+	text-align: center;
+	border-radius: 5px;
+	overflow: hidden;
+}
+
+.input-group {
+	margin-top: 10px;
+}
+
+.table-condensed> thead> tr> th,
+.table-condensed> tbody> tr> th,
+.table-condensed> tfoot> tr> th,
+.table-condensed> thead> tr> td,
+.table-condensed> tbody> tr> td,
+.table-condensed> tfoot> tr> td{
+	padding: 10px 13px;
+}

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+		<link rel="stylesheet" type="text/css" href="../../resources/css/base.css" />
+		<link rel="stylesheet" type="text/css" href="../../resources/css/bootstrap/bootstrap.css" />
+		<link rel="stylesheet" type="text/css" href="../../resources/css/klanalysis.css" />
+		<link rel="stylesheet" type="text/css" href="../../resources/css/ol.css" />
+		<title></title>
+	</head>
+	<body class="">
+		<div class="panel_tabs">
+			<span class="tab js-tab active">客流概况</span><span class="tab  js-tab">上网概况</span>
+		</div>
+		<div class="content_panels">
+			<div class="single_panel" style="display: block">
+				<div class="top">
+					<div class="top_left">
+						<div class="text_panel today">
+							<p class="kltitle_a tc">当前场内客流数</p>
+							<div style="height: 12px;">
+								<p class="kldesc tc" style="height: 12px;" v-text="today.time"></p>
+							</div>
+							<div style="height: 140px;">
+								<p class="klnum_a  tc" style="height: 140px;line-height: 140px;font-size: 45px;" v-text="today.count"></p>
+							</div>
+							<p class="kldesc">该实时数据未经统计修正,数据相比实际值偏大,统计修正将在明天凌晨进行。</p>
+						</div>
+						<div class="text_panel prevDay">
+							<div class="count_group mtnone" style="height: 70px;">
+								<p class="kltitle_b">昨日场内客流总数</p>
+								<div class="count_group_warp">
+									<div class="klnum_b fl" v-text="yesterday.count">599.9</div>
+									<p class="kldesc fr" v-text="yesterday.date"></p>
+								</div>
+							</div>
+							<div class="count_group">
+								<p class="kltitle_b">上周今日场内客流总数</p>
+								<div class="count_group_warp">
+									<div class="klnum_b fl" v-text="beforeSeven.count"></div>
+									<p class="kldesc fr" v-text="beforeSeven.date"></p>
+								</div>
+							</div>
+							<div class="count_group">
+								<p class="kltitle_b">昨日途径客流数</p>
+								<div class="count_group_warp">
+									<div class="klnum_b fl" v-text="yesterdayTj.count"></div>
+									<p class="kldesc fr" v-text="yesterdayTj.date"></p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="top_right">
+						<div class="chart heatmap" id="heatMap"></div>
+						<div class="chart total js-chart" id="curVisitors" data-type="line">
+						</div>
+					</div>
+				</div>
+				<div class="bottom">
+					<div class="chart js-chart" id="thisWeekLine" data-type="line"></div>
+				</div>
+			</div>
+			<div class="single_panel">
+				<div class="gk_top">
+					<div class="gk_text">
+						<div class="count_group2 mt10">
+							<p class="kltitle_a">当前上网人数</p>
+							<p class="kldesc" v-text="today.time"></p>
+							<p class="klnum_a ptb20" v-text="inLineCount">400</p>
+						</div>
+						<div class="count_group2">
+							<p class="kltitle_b">其中会员人数</p>
+							<p class="kldesc" v-text="today.time"></p>
+							<p class="klnum_b ptb18" v-text="inLineVipCount"></p>
+						</div>
+					</div>
+					<div class="gk_text middle">
+						<div class="count_group2">
+							<p class="kltitle_b">今日新增上网人数</p>
+							<p class="kldesc" v-text="todayDate"></p>
+							<p class="klnum_b ptb21" v-text="todayAddCount"></p>
+						</div>
+						<div class="count_group2">
+							<p class="kltitle_b">今日回访上网人数</p>
+							<p class="kldesc" v-text="todayDate"></p>
+							<p class="klnum_b ptb21" v-text="todayCallbackCount"></p>
+						</div>
+					</div>
+					<div class="gk_text">
+						<div class="count_group mtnone">
+							<p class="kltitle_b">今日累计上网人数</p>
+							<div class="count_group_warp">
+								<div class="klnum_b fl" v-text="todayCallbackCount+todayAddCount"></div>
+								<p class="kldesc fr" v-text="todayDate"></p>
+							</div>
+						</div>
+						<div class="count_group">
+							<p class="kltitle_b">今日上网认证人数</p>
+							<div class="count_group_warp">
+								<div class="klnum_b fl" v-text="todayNewAuth"></div>
+								<p class="kldesc fr" v-text="todayDate"></p>
+							</div>
+						</div>
+						<div class="count_group">
+							<p class="kltitle_b">今日上网认证次数</p>
+							<div class="count_group_warp">
+								<div class="klnum_b fl" v-text="todayAuthCount">599.9</div>
+								<p class="kldesc fr" v-text="todayDate"></p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="chart_group">
+					<div class="chart_b js-chart" id="inLine"></div>
+					<div class="chart_s js-chart" id="mobilePercent"></div>
+				</div>
+				<div class="chart_group">
+					<div class="chart_b js-chart" id="vipInLine"></div>
+					<div class="chart_s js-chart" id="vipPercent"></div>
+				</div>
+				<div class="chart_group">
+					<div class="chart_b js-chart" id="newlyCount"></div>
+					<div class="chart_s js-chart" id="newlyPercent"></div>
+				</div>
+			</div>
+		</div>
+		<div id="pop" style="display: none;"></div>
+		<script type="text/javascript" src="../../resources/require.js"></script>
+		<script type="text/javascript" src="../../resources/modules/klanalyse/index.js"></script>
+	</body>
+
+</html>

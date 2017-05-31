@@ -1,0 +1,236 @@
+@charset "utf-8";
+.panel_tabs {
+	position: relative;
+	height: auto;
+	overflow: hidden;
+	padding: 15px;
+}
+
+.panel_tabs .tab {
+	display: block;
+	float: left;
+	padding: 10px 15px;
+	border: 1px solid #6699cc;
+	border-radius: 5px;
+	color: #6699cc;
+	background-color: #FFF;
+	z-index: 1;
+	margin-right: -5px;
+	cursor: pointer;
+}
+
+.panel_tabs .tab.active {
+	z-index: 2;
+	background-color: #6699cc;
+	color: #FFF;
+	margin-left: -5px;
+}
+
+.single_panel {
+	position: relative;
+	padding: 0 15px;
+	display: none;
+}
+
+.top {
+	position: relative;
+	overflow: hidden;
+}
+
+.text_panel {
+	margin-bottom: 15px;
+	width: 100%;
+	height: auto;
+	background-color: #FFF;
+	padding: 15px;
+}
+
+.text_panel.today {
+	height: 225px;
+}
+
+.text_panel.prevDay {
+	/*height: 240px;*/
+	/*height: 260px;*/
+}
+
+.top_left {
+	width: 400px;
+	float: left;
+}
+
+.top_right {
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 400px;
+	bottom: 0;
+}
+
+.top_right .chart {
+	margin: 0 0 15px 15px;
+	background-color: #FFFFFF;
+	clear: both;
+}
+
+.top_right .chart.heatmap {
+	height: 290px;
+}
+
+.top_right .chart.total {
+	height: 235px;
+	padding: 10px 0;
+}
+
+.bottom .chart {
+	height: 225px;
+	margin-bottom: 15px;
+	background-color: #FFF;
+}
+
+.gk_top {
+	height: auto;
+	overflow: hidden;
+	margin-bottom: 15px;
+}
+
+.gk_text {
+	float: left;
+	background-color: #FFF;
+	padding: 10px 0;
+}
+
+.gk_text .count_group {
+	margin: 0 10px;
+}
+
+.text_panel .count_group {
+	height: 80px;
+	margin-top: 20px;
+}
+
+.gk_text.middle {
+	margin: 0 15px;
+}
+
+.chart_group {
+	overflow: hidden;
+	height: 245px;
+	margin-bottom: 15px;
+}
+
+.chart_group .chart_b {
+	float: left;
+	height: 100%;
+	background-color: #FFF;
+	padding: 10px 0;
+}
+
+.chart_group .chart_s {
+	float: right;
+	height: 100%;
+	background-color: #FFF;
+	padding: 10px 0;
+}
+
+.kltitle_a {
+	font-size: 24px;
+	color: #333;
+	margin-bottom: 5px;
+}
+
+.kltitle_b {
+	font-size: 20px;
+	color: #999;
+}
+
+.klnum_a {
+	font-size: 40px;
+	font-weight: 900;
+	color: #6699cc;
+}
+
+.klnum_b {
+	font-size: 35px;
+	font-weight: 900;
+	color: #6699cc;
+	text-align: left;
+}
+
+.ptb50 {
+	padding: 50px 0;
+}
+
+.ptb22 {
+	padding: 22px 0;
+}
+
+.ptb22 {
+	padding: 22px 0;
+}
+
+.ptb21 {
+	padding: 21px 0;
+}
+
+.ptb20 {
+	padding: 20px 0;
+}
+
+.ptb19 {
+	padding: 19px 0;
+}
+
+.ptb18 {
+	padding: 18px 0;
+}
+
+.ptb17 {
+	padding: 17px 0;
+}
+
+.kldesc {
+	font-size: 12px;
+	color: #999;
+	word-wrap: break-word;
+}
+
+.count_group {
+	height: auto;
+	padding-top: 10px;
+}
+
+.count_group2 {
+	height: auto;
+	margin: 0 10px;
+}
+
+.count_group2 .kltitle_b {
+	margin-top: 1px;
+	margin-bottom: 5px;
+}
+
+.count_group_warp {
+	position: relative;
+	overflow: hidden;
+	margin-top: 15px;
+}
+
+.count_group_warp .kldesc {
+	margin-top: 22px;
+}
+
+.count_group.mtnone {
+	padding-top: 0;
+	margin-top: 0;
+}
+
+#heatmap_div_loc {
+	transform: rotate(49.1deg);
+	width: 3840px;
+	height: 2160px;
+	top: 50%;
+	left: 50%;
+	margin-top: -1080px;
+	margin-left: -1920px;
+}

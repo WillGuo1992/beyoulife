@@ -1,0 +1,288 @@
+.main-top {
+	margin: 10px 30px;
+	padding: 20px;
+	background-color: #FFF;
+	overflow: hidden;
+}
+
+.desc_warp {
+	/*float: left;*/
+}
+
+.count_date_warp {
+	padding-top: 10px;
+}
+
+.date_warp {
+	float: left;
+	width: 339px;
+	height: 282px;
+}
+.count_warp {
+	float: right;
+	border: 1px solid #eef0f1;
+	border-radius: 10px;
+	padding: 20px 15px;
+	width: 242px;
+	margin-right: 20px;
+	border: 1px solid #cccccc;
+	border: 1px solid rgba(0, 0, 0, 0.15);
+	border-radius: 5px;
+	-webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+}
+
+.count_warp .total {
+	font-size: 30px;
+	color: #333;
+	margin-bottom: 30px;
+}
+
+.count_warp .normal {
+	font-size: 26px;
+	color: #333;
+	margin-top: 20px;
+}
+
+.count_warp i {
+	color: #6699cc;
+	font-weight: 900;
+}
+
+.m_title {
+	font-size: 18px;
+	font-weight: bold;
+	color: #000;
+	margin-bottom: 10px;
+}
+
+.m_title2 {
+	font-size: 16px;
+	font-weight: bold;
+	color: #000;
+}
+
+.m_desc {
+	font-size: 14px;
+	color: #999;
+}
+
+
+/*.datetimepicker {
+	width: 100%;
+	hanging-punctuation: 1;
+}
+*/
+
+.dropdown-menu {
+	top: 0;
+}
+
+.date_picker {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+.datetimepicker {
+	width: 100%;
+}
+
+.date_warp .datetimepicker td,
+.date_warp .datetimepicker th {
+	padding: 10px 15px;
+	background-color: #FFF;
+	color: #333;
+}
+
+.table-condensed {
+	width: 100%;
+}
+
+.datetimepicker table tr td span {
+	/*padding: 0 10px;*/
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+	display: inline-block;
+	width: 14px;
+	height: 14px;
+	margin-top: 1px;
+	*margin-right: .3em;
+	line-height: 14px;
+	vertical-align: text-top;
+	background-image: url("../libs/bootstrap/bootstrap-datepicker/glyphicons-halflings.png");
+	background-position: 14px 14px;
+	background-repeat: no-repeat;
+}
+
+.icon-arrow-left {
+	background-position: -240px -96px;
+}
+
+.icon-arrow-right {
+	background-position: -264px -96px;
+}
+
+.table-panel {
+	padding: 20px;
+}
+
+
+/*新增样式*/
+
+.add_content_warp {
+	padding: 20px 10px;
+	margin: 0 auto;
+	background-color: #FFF;
+	display: none;
+}
+
+.add_content_warp:first-child {
+	display: block;
+}
+
+.add_title {
+	font-size: 18px;
+	font-weight: bold;
+	color: #000;
+	margin-bottom: 20px;
+}
+
+.content_box {
+	height: 248px;
+}
+
+.talbe_warp {
+	height: 200px;
+	overflow: hidden;
+	margin-top: 10px;
+}
+
+.bodybgfff {
+	background: #FFF;
+	;
+}
+
+.carNo_warp {
+	display: inline-block;
+	height: auto;
+	vertical-align: middle;
+	text-align: center;
+}
+
+.vmiddle:after {
+	display: inline-block;
+	height: 100%;
+	content: "";
+	vertical-align: middle;
+}
+
+a.add-disable {
+	color: #999;
+	cursor: auto;
+}
+
+.pagination-info {
+	display: none;
+}
+
+.talbe_warp .pagination-detail .page-list {
+	display: none;
+}
+
+.form-group {
+	display: inline-block;
+	margin-bottom: 0;
+}
+
+.form-control input {
+	display: inline-block;
+	width: 150px;
+}
+
+.carNo {
+	margin-bottom: 10px;
+}
+
+.carNo_word {
+	display: inline-block;
+	width: 120px;
+	text-align: center;
+	padding: 10px 0;
+	color: #FFF;
+	font-size: 16px;
+	border-radius: 5px;
+	background-color: #386DA9;
+	margin-left: 10px;
+}
+
+.radio_check {
+	display: inline-block;
+}
+
+.radio_check input[type=radio] {
+	display: none;
+}
+
+.radio_check .radio_check_icon {
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	background: url(../images/radio.png) no-repeat;
+	background-size: 100% 100%;
+}
+
+.radio_check.active .radio_check_icon {
+	background-image: url(../images/radio_check.png);
+}
+
+.error_warp {
+	margin: 20px 0;
+	text-align: center;
+}
+
+.error_warp img {
+	width: 30%;
+	margin: 10px 0;
+}
+
+.error_tip {
+	margin: 0;
+	font-size: 14px;
+	color: #999;
+}
+
+.success_warp {
+	text-align: center;
+	padding: 10px 0;
+}
+
+.fixed-table-header {
+	background-color: #2E86C0;
+}
+
+.success_icon {
+	width: 20%;
+}
+
+.success_tip {
+	font-size: 18px;
+	margin: 20px 0;
+}
+
+.success_info {
+	display: inline-block;
+	text-align: left;
+}
+
+.success_info p {
+	margin: 0 0 5px 0;
+	font-size: 16px;
+}
+
+.btns {
+	margin-top: 20px;
+	text-align: center;
+}

@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta http-equiv="Pragma" content="no-cache">
+    <link rel="stylesheet" type="text/css" href="../../resources/css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../../resources/css/bootstrap/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="../../resources/css/bootstrap/bootstrap-table.css"/>
+    <link rel="stylesheet" type="text/css" href="../../resources/css/breadcrumb.css"/>
+    <link rel="stylesheet" type="text/css" href="../../resources/css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="../../resources/css/goods.css"/>
+    <link rel="stylesheet" type="text/css" href="../../resources/css/webuploader.css"/>
+    <link rel="stylesheet" type="text/css" href="../../resources/css/upload.css"/>
+    <link rel="stylesheet" type="text/css" href="../../resources/css/easydropdown.flat.css">
+    <title>新建商品</title>
+</head>
+<body>
+<div class="breadcrumb-con">
+    <ul class="breadcrumb js-breadcrumb">
+        <li class="active">
+            <a href="#">1.商品信息</a>
+        </li>
+        <li>
+            <a href="#">2.规格/价格/库存</a>
+        </li>
+        <li>
+            <a href="#">3.限购/物流等</a>
+        </li>
+        <li>
+            <a href="#">4.完成</a>
+        </li>
+    </ul>
+</div>
+<div class="breadcrumb-list-con">
+    <div class="breadcrumb-content js-breadcrumb-content" style="display: block" id="goodsInfo">
+        <table class="goods-layout">
+            <tr>
+                <td>商品名称：</td>
+                <td>
+                    <input type="text" class="form-control goods-input1" maxlength="30" v-model="goods.brand_name">
+                    <p class="goods-block-desc">限30字，如：华为 P9 全网通 3GB+32GB版 流光金</p>
+                </td>
+            </tr>
+            <tr>
+                <td>商品促销标题：
+                    <p class="goods-block-desc">(选填)</p>
+                </td>
+                <td>
+                    <input type="text" class="form-control goods-input1" maxlength="30" v-model="goods.title">
+                    <p class="goods-block-desc">限30字，如：麒麟955芯片！后置1200万徕卡双摄像头！</p>
+                </td>
+            </tr>
+            <tr>
+                <td>商品类目：</td>
+                <td>
+                    <div class="goods-item">
+                        <input type="text" class="form-control goods-input2" placeholder="必填, 如:男装"
+                               v-model="singleCategory" maxlength="10"/>
+                        <span class="btn btn-primary input-sm js-submit" @click="addCategory()">添加</span>
+                    </div>
+                    <div class="goods-item bnone categorys" v-show="goods.category.length>0">
+                        <div class="category" v-for="cate in goods.category" track-by="$index"><span v-text="cate"></span><i
+                                @click="delCategory($index)">x</i></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>商品分组：
+                    <p class="goods-block-desc">(选填)</p>
+                </td>
+                <td>
+                    <input type="text" class="form-control" maxlength="30" v-model="goods.groups">
+                    <p class="goods-block-desc">相同分组名称的商品会自动归为一组,如：手机</p>
+                </td>
+            </tr>
+            <tr>
+                <td>商品量词：
+                    <p class="goods-block-desc">(选填)</p>
+                </td>
+                <td>
+                    <input type="text" class="form-control goods-input3" maxlength="6" v-model="goods.quantifier">
+                    <p class="goods-block-desc">如商品为服装，量词可用“件”</p>
+                </td>
+            </tr>
+            <tr>
+                <td>销售动词：
+                    <p class="goods-block-desc">(选填)</p>
+                </td>
+                <td>
+                    <input type="text" class="form-control goods-input3" maxlength="6" v-model="goods.sellver">
+                    <p class="goods-block-desc">需支付购买的可用“购买”，用积分兑换的可用“兑换”，免费领取的可用“领取”</p>
+                </td>
+            </tr>
+            <tr>
+                <td>商品图片：</td>
+                <td>
+                    <div class="goods-pic-desc">商品主图
+                        <p class="goods-inline-desc">（640x640像素，支持JPG/PNG格式，文件大小不超过1M）</p>
+                    </div>
+                    <div class="goods-pic-list">
+                        <div class="goods-pic" v-show="goods.logo">
+                            <img v-bind:src="goods.logo">
+                            <div class="edit_pic_mask">
+                                <a href="javascript:;" class="icon_common del_gray" v-on:click="delCoverPic()"></a>
+                            </div>
+                        </div>
+                        <div v-show="!goods.logo" class="goods-pic add" id="goodsLogo"></div>
+                    </div>
+                    <div class="goods-pic-desc">其他图片
+                        <p class="goods-inline-desc">（选传，支持JPG/PNG格式，文件大小不超过1M，最多10张）</p>
+                    </div>
+                    <div class="goods-pic-list">
+                        <div class="goods-pic" v-for="pic in goods.logo_urls" track-by="$index">
+                            <img v-bind:src="pic">
+                            <div class="edit_pic_mask">
+                                <a href="javascript:;" class="icon_common del_gray"
+                                   v-on:click="delOtherPic($index)"></a>
+                            </div>
+                        </div>
+                        <div v-show="goods.logo_urls.length<10" class="goods-pic add" id="goodsOtherPic"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>商品详情：
+                    <p class="goods-block-desc">(选填)</p>
+                </td>
+                <td>
+                    <div class="goods_info">
+                        <div class="goods_info_content">
+                            <div class="edit_warp" v-for="info in goods.details">
+                                <p v-if="info.type=='1'" v-text="info.value"></p>
+                                <img v-if="info.type=='2'" v-bind:src="info.value"/>
+                                <div class="edit_mask">
+                                    <span class="vm_box"></span>
+                                    <a href="javascript:;" class="icon_common up_gray"
+                                       v-on:click="infoUp($index)">up</a>
+                                    <a href="javascript:;" class="icon_common down_gray" v-on:click="infoDown($index)">down</a>
+                                    <a href="javascript:;" v-if="info.type!='2'" class="icon_common edit_gray"
+                                       id="edit-id-{{$index}}" v-on:click="infoEdit($index,info.type)"></a>
+                                    <a href="javascript:;" class="icon_common del_gray"
+                                       v-on:click="infoDel($index)"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="goods-add">
+                            <div class="create_access">
+                                <i class="icon"></i>
+                                <a class="btn_add_pic" id="addInfoPic">
+                                    <i class="icon_add_pic"></i>
+                                    <strong>添加图片</strong>
+                                </a>
+                                <a class="btn_add_txt" v-on:click="addTxt">
+                                    <i class="icon_add_txt"></i>
+                                    <strong>添加文字</strong>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <div class="btns tc mt20">
+            <span class="btn btn-primary js-next">下一步</span>
+        </div>
+    </div>
+    <div class="breadcrumb-content js-breadcrumb-content" id="standardInfo">
+        <h4>商品规格：</h4>
+        <div class="table_warp">
+            <div class="standard_toolbox">
+                <span type="button" class="btn btn-primary js-delStandard"><span
+                        class="glyphicon glyphicon-remove"></span>删除</span>
+                <span class="btn btn-primary js-newStandard ml10">新建规格</span>
+            </div>
+            <table id="standardBtr" class="standardBtr"></table>
+        </div>
+        <h4 class="mt20">价格和库存：</h4>
+        <div class="table_warp price_table">
+            <table id="priceBtr"></table>
+        </div>
+        <div class="btns tc mt20">
+            <span class="btn btn-default js-prev">上一步</span>
+            <span class="btn btn-primary js-next">下一步</span>
+        </div>
+
+        <!--新建.编辑规格值 弹窗-->
+        <div class="standard_Dialog goods_dialog">
+            <form>
+                <table>
+                    <tr>
+                        <td style="width: 60px;">规格名:</td>
+                        <td><input type="text" class="form-control" name="standard" placeholder="规格名"></td>
+                    </tr>
+                    <tr>
+                        <td>规格值:</td>
+                        <td><input type="text" class="form-control" name="standardval" placeholder="规格值"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <a href="javasicrpt:;" class="js-newStandardInput">新建规格值</a>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+            <div class="w-input-group bnone mt20 mb10 tc js-footer-btn">
+                <span class="btn btn-primary input-sm js-standardForm-submit">保存</span>
+            </div>
+        </div>
+        <!--价格编辑窗体-->
+        <div class="price_dialog goods_dialog">
+            <form>
+                <table>
+                    <tr>
+                        <td style="width: 80px;">规格:</td>
+                        <td>
+                            <p class="js-gg-t">统一规格</p>
+                            <p class="js-gg-v"></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>购买价格:</td>
+                        <td><input type="text" class="form-control" name="buyPrice" placeholder="必填"></td>
+                    </tr>
+                    <tr>
+                        <td>原购买价格:</td>
+                        <td><input type="text" class="form-control" name="oldBuyPrice" placeholder="选填"></td>
+                    </tr>
+                    <tr>
+                        <td>兑换积分:</td>
+                        <td><input type="text" class="form-control" name="integral" placeholder="必填"></td>
+                    </tr>
+                    <tr>
+                        <td>原兑换积分:</td>
+                        <td><input type="text" class="form-control" name="oldintegral" placeholder="选填"></td>
+                    </tr>
+                </table>
+            </form>
+            <div class="w-input-group bnone mt20 mb10 tc js-footer-btn">
+                <span class="btn btn-primary input-sm js-price-submit">保存</span>
+            </div>
+        </div>
+    </div>
+    <div class="breadcrumb-content js-breadcrumb-content" id="thridModel">
+        <table class="goods-layout">
+            <tr>
+                <td>是否限购：</td>
+                <td>
+                    <div class="radio_label_group mt6">
+                        <label class="radio_label check">
+                            <i class="icon_radio"></i>
+                            <span>不限购</span>
+                            <input type="radio" name="limit_type" value="1" v-model="form.limit_info.type"/>
+                        </label>
+                        <label class="radio_label">
+                            <i class="icon_radio"></i>
+                            <span>限购</span>
+                            <input type="radio" name="limit_type" v-model="form.limit_info.type" value="2"/>
+                        </label>
+                    </div>
+                    <div class="ml20 mt20" v-show="form.limit_info.type==2">
+                        <div class="radio_label_group">
+                            <div class="goods-item">
+                                <label class="radio_label check">
+                                    <i class="icon_radio"></i>
+                                    <span>该商品限购<input type="text" v-model="form.limit_info.limitNum"
+                                                      class="form-control goods-input3 mr10 ml10">件</span>
+                                    <input type="radio" name="limit_info_num" value="1"
+                                           v-model="form.limit_info.limitNum_type"/>
+                                </label>
+                            </div>
+                            <div class="goods-item">
+                                <label class="radio_label">
+                                    <i class="icon_radio"></i>
+                                    <span>该商品同一规格限购<input type="text" v-model="form.limit_info.specNum"
+                                                          class="form-control goods-input3 mr10 ml10">件</span>
+                                    <input type="radio" name="limit_info_num" value="2"
+                                           v-model="form.limit_info.limitNum_type"/>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>所在地：</td>
+                <td>
+                    <select id="province" v-model="form.provinceCode">
+                        <option value="">省/市/自治区</option>
+                        <option v-for="province in area" v-text="province.name" v-bind:value="province.adcode"></option>
+                    </select>
+                    <select id="city" class="ml10" v-model="form.cityCode">
+                        <option value="">城市/地区</option>
+                        <option v-for="city in cityList" v-bind:value="city.adcode" v-text="city.name"></option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>运费：</td>
+                <td>
+                    <div class="radio_label_group mt6">
+                        <label class="radio_label check">
+                            <i class="icon_radio"></i>
+                            <span>卖家承担运费（包邮）</span>
+                            <input type="radio" name="freight_info" v-model="form.freight_info.type" value="1"/>
+                        </label>
+                        <label class="radio_label">
+                            <i class="icon_radio"></i>
+                            <span>买家承担运费（不包邮）</span>
+                            <input type="radio" name="freight_info" v-model="form.freight_info.type" value="2"/>
+                        </label>
+                    </div>
+                    <div class="ml20 mt20" v-show="form.freight_info.type==1">
+                        <div class="radio_label_group">
+                            <label class="radio_label check">
+                                <i class="icon_radio"></i>
+                                <span>统一运费</span>
+                                <input type="radio" name="freight_type" v-model="form.freight_info.freight_type"
+                                       value="1"/>
+                            </label>
+                            <label class="radio_label">
+                                <i class="icon_radio"></i>
+                                <span>运费模板</span>
+                                <input type="radio" name="freight_type" v-model="form.freight_info.freight_type"
+                                       value="2"/>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="mt20 ml50" v-show="form.freight_info.freight_type==1&&form.freight_info.type==1"
+                         id="postageType">
+                        <div class="checkbox_label_group goods-item">
+                            <label class="checkbox_label">
+                                <i class="icon_checkbox"></i>
+                                <span>平邮</span>
+                                <input type="checkbox" name="inputPy"/>
+                                <span><input type="text" disabled="disabled" v-model="form.freight_info.inputPy"
+                                             maxlength="4" class="form-control goods-input3 mr10 ml10"
+                                             style="margin-left: 39px"></span>
+                        </div>
+                        <div class="checkbox_label_group goods-item">
+                            <label class="checkbox_label">
+                                <i class="icon_checkbox"></i>
+                                <span>普通快递</span>
+                                <input type="checkbox" name="inputPt"/>
+                                <span><input type="text" disabled="disabled" v-model="form.freight_info.inputPt"
+                                             maxlength="4" class="form-control goods-input3 mr10 ml10"></span>
+                        </div>
+                        <div class="checkbox_label_group goods-item">
+                            <label class="checkbox_label">
+                                <i class="icon_checkbox"></i>
+                                <span>EMS</span>
+                                <input type="checkbox" name="inputEMS"/>
+                                <span><input type="text" disabled="disabled" v-model="form.freight_info.inputEMS"
+                                             maxlength="4" class="form-control goods-input3 mr10 "
+                                             style="margin-left: 36px;"></span>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>发票：</td>
+                <td>
+                    <div class="radio_label_group mt6">
+                        <label class="radio_label check">
+                            <i class="icon_radio"></i>
+                            <span>无</span>
+                            <input type="radio" v-model="form.invoice" name="invoice" value="0"/>
+                        </label>
+                        <label class="radio_label">
+                            <i class="icon_radio"></i>
+                            <span>有</span>
+                            <input type="radio" v-model="form.invoice" name="invoice" value="1"/>
+                        </label>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>上架设置：</td>
+                <td>
+                    <div class="radio_label_group mt6">
+                        <label class="radio_label check">
+                            <i class="icon_radio"></i>
+                            <span>暂不上架</span>
+                            <input type="radio" v-model="form.enable" name="enable" value="0"/>
+                        </label>
+                        <label class="radio_label">
+                            <i class="icon_radio"></i>
+                            <span>立即上架(上架后信息不可更改，请确认信息填写无误)</span>
+                            <input type="radio" v-model="form.enable" name="enable" value="1"/>
+                        </label>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <div class="btns tc mt20">
+            <span class="btn btn-default js-prev">上一步</span>
+            <span class="btn btn-primary js-next">下一步</span>
+        </div>
+    </div>
+    <div class="breadcrumb-content js-breadcrumb-content">
+        <div class="success-con">
+            <img src="../../resources/images/finished.png"/>
+            <p class="mt10">新建商品成功</p>
+            <a href="javascript:window.location.reload()">再建一个</a>
+        </div>
+        <div class="btns tc mt20">
+            <span class="btn btn-primary js-success">完成</span>
+        </div>
+    </div>
+</div>
+<!--新建编辑文本内容弹窗-->
+<div id="editArea" class="edit_area">
+    <div class="dialog_tips">单个文本框字数不超过500字</div>
+    <div class="textarea_box">
+        <textarea></textarea>
+    </div>
+    <div class="textarea_tips">还可以输入<span>500</span>字</div>
+    <div class="btns tc">
+        <span class="btn btn-primary input-sm js-submit">确定</span>
+        <span class="btn btn-default input-sm ml10 js-exit">取消</span>
+    </div>
+</div>
+<script type="text/javascript" src="../../resources/require.js"></script>
+<script type="text/javascript" src="../../resources/modules/goods/index.js"></script>
+</body>
+
+</html>

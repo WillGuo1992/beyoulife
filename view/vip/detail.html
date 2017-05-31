@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta http-equiv="Cache-Control" content="no-cache">
+		<link rel="stylesheet" type="text/css" href="../../resources/css/base.css" />
+		<link rel="stylesheet" type="text/css" href="../../resources/libs/bootstrap/css/bootstrap.css" />
+		<link rel="stylesheet" type="text/css" href="../../resources/css/common.css" />
+		<link rel="stylesheet" type="text/css" href="../../resources/css/pagination.css" />
+		<title>积分明细</title>
+	</head>
+	<body id="app" class="bgff">
+		<table class="mtable">
+			<thead>
+				<tr>
+					<th width="23%">时间</th>
+					<th width="15%">店铺</th>
+					<th width="15%">项目</th>
+					<th width="10%">积分</th>
+					<th width="15%">消费金额</th>
+					<th width="22%">备注</th>
+				</tr>
+				<tr v-for="el in list">
+					<td v-text="el.addtime"></td>
+					<td v-text="el.shop_store"></td>
+					<td v-text="el.project_name"></td>
+					<td>
+						<span v-if="el.integral>0" style="color: red;" v-text="'+'+el.integral"></span>
+						<span v-if="el.integral<0" style="color: green;" v-text='el.integral'></span>
+					</td>
+					<td v-text='el.money'></td>
+					<td v-text="el.description"></td>
+				</tr>
+			</thead>
+			<tbody id="integralBody"></tbody>
+		</table>
+		<div class="tc">
+			<div id="pagination" class="pagination" style="display: none;text-align: center;"></div>
+		</div>
+		<script type="text/javascript" src="../../resources/require.js"></script>
+		<script type="text/javascript" src="../../resources/modules/vip/detail.js"></script>
+	</body>
+
+</html>

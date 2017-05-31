@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta http-equiv="Cache-Control" content="no-cache">
+		<link rel="stylesheet" type="text/css" href="../../resources/css/base.css" />
+		<link rel="stylesheet" type="text/css" href="../../resources/css/bootstrap/bootstrap.css" />
+		<link rel="stylesheet" type="text/css" href="../../resources/css/bootstrap/bootstrap-datetimepicker.min.css" />
+		<link rel="stylesheet" type="text/css" href="../../resources/css/bootstrap/bootstrap-table.css" />
+		<link rel="stylesheet" type="text/css" href="../../resources/css/common.css" />
+		<link rel="stylesheet" type="text/css" href="../../resources/css/webuploader.css" />
+		<link rel="stylesheet" type="text/css" href="../../resources/css/upload.css" />
+		<link rel="stylesheet" type="text/css" href="../../resources/css/saleinput.css" />
+		<title>订单查询</title>
+	</head>
+	<body>
+		<div class="search-panel tl">
+			<span class="go_back"></span>
+			<h2>销售数据录入/编辑</h2>
+		</div>
+		<div class="content-panel">
+			<div class="time-title">选择录入/编辑的销售数据日期：<span class="cur-time"></span></div>
+			<div class="panel-list">
+				<!-- 选择日期-->
+				<div class="single-panel" id="timecon" style="display:block">
+					<input type="text" id="datetimepicker" style="display: none;">
+					<div class="timecon-pos">
+						<div class="sale-datepicker"></div>
+						<div class="checkbox-con">
+							<div class="title">录入/编辑方式：</div>
+							<div class="radio-list">
+								<div>
+									<label class="frm_radio_label js_radio_sendMsg" data-value="1">
+						    <i class="icon_radio selected"></i>
+							<span class="lbl_content">Excel数据文件批量导入（Microsoft Excel 2003版 xls 文件）</span>
+						     </label>
+								</div>
+								<div>
+									<label class="frm_radio_label js_radio_sendMsg" data-value="2">
+						    <i class="icon_radio"></i>
+							<span class="lbl_content">手工录入/编辑数据</span>
+						     </label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="btns">
+						<span class="btn btn-primary nextFisBtn">下一步</span>
+					</div>
+				</div>
+				<!-- 文件上传-->
+				<div class="single-panel" id="uploadcon">
+					<h2 class="upload-title">销售数据录入/编辑</h2>
+					<div class="upload">
+						<div class="input-group"><span style="font-weight: 600;">上传文件<i style="color: red;">*</i></span>：大小不超过3M,Microsoft Excel 2003版 xls 文件</div>
+						<div class="input-group">
+							<a href="javascript:void(0)" class="downTempl">Excel数据文件模板下载</a>
+						</div>
+						<div class="error-info" style="color: red"></div>
+						<div class="fileName" id="fileName"></div>
+						<div id="chooseFile" class="chooseFile">选择文件</div>
+					</div>
+					<div class="btns">
+						<span class="btn btn-primary nextSecondBtn" style="margin: 0;">下一步</span>
+					</div>
+				</div>
+				<!-- 表格编辑数据-->
+				<div class="single-panel" id="table-con">
+					<h2 class="table-title">手工录入/编辑数据
+					<span class="btn btn-primary saveBtn" style="float: right;margin-top: -10px;font-size: 16px;font-weight: normal;">保存</span></h2>
+					<div class="table-con">
+						<table id="btrTable"></table>
+					</div>
+					<div class="btns">
+						<span class="btn btn-primary saveBtn">保存</span>
+						<span class="btn btn-primary go_back">返回</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="SiteGoTopBox" style="">
+			<a href="javascript:;" class="btn_ALink" id="SiteGoTopBtn"></a>
+		</div>
+		<script type="text/javascript" src="../../resources/require.js"></script>
+		<script type="text/javascript" src="../../resources/modules/sale/saleinput.js"></script>
+	</body>
+</html>

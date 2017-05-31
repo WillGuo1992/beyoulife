@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>养护车辆活动预约管理</title>
+		<link rel="stylesheet" type="text/css" href="../../resources/css/base.css" />
+		<link rel="stylesheet" type="text/css" href="../../resources/css/bootstrap/bootstrap.css" />
+		<link rel="stylesheet" type="text/css" href="../../resources/css/bootstrap/bootstrap-datetimepicker.min.css" />
+		<link rel="stylesheet" type="text/css" href="../../resources/libs/bootstrap/bootstrap-table/bootstrap-table.css" />
+		<link rel="stylesheet" type="text/css" href="../../resources/css/common.css" />
+		<link rel="stylesheet" type="text/css" href="../../resources/css/maintenance.css" />
+	</head>
+	<body>
+		<div class="main-top">
+			<div class="desc_warp">
+				<p class="m_title">养护车辆活动预约管理</p>
+				<div class="date_title">
+					<p class="m_title2">日期:<i class="js-date"></i></p>
+					<p class="m_desc" style="margin-top: 5px;">(请从月历中选择日期)</p>
+				</div>
+			</div>
+			<div class="count_date_warp">
+				<div class="date_warp">
+					<input type="text" id="datetimepicker" style="display: none;" />
+					<div class="date_picker js-date-picker"></div>
+				</div>
+				<div class="count_warp">
+					<div class="total">总时段数：<i class="js-total"></i></div>
+					<div class="normal">未预约：<i class="js-wyy"></i></div>
+					<div class="normal">已预约：<i class="js-yyy"></i></div>
+					<div class="normal">已核销：<i class="js-yhx"></i></div>
+				</div>
+			</div>
+		</div>
+		<div class="table-panel">
+			<table id="btrTable"></table>
+		</div>
+		<script type="text/javascript" src="../../resources/require.js"></script>
+		<script type="text/javascript" src="../../resources/modules/maintenance/index.js"></script>
+	</body>
+
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>新增预约</title>
+		<link rel="stylesheet" type="text/css" href="../../resources/css/base.css" />
+		<link rel="stylesheet" type="text/css" href="../../resources/libs/bootstrap/css/bootstrap.css" />
+		<link rel="stylesheet" type="text/css" href="../../resources/libs/bootstrap/bootstrap-table/bootstrap-table.css" />
+		<link rel="stylesheet" type="text/css" href="../../resources/css/common.css" />
+		<link rel="stylesheet" type="text/css" href="../../resources/css/maintenance.css" />
+	</head>
+	<body class="bodybgfff">
+		<div class="add_content_warp">
+			<div class="add_title">选择会员</div>
+			<div>
+				<div class="search_panel">
+					<form class="form-inline tl">
+						<div class="form-group">
+							<label for="phone_no">手机号：</label>
+							<input type="tel" style="display: inline-block;width: 200px;" class="form-control" id="phone_no" placeholder="手机号" maxlength="11">
+						</div>
+						<div class="form-group">
+							<span class="btn btn-primary js-search">查询</span>
+						</div>
+					</form>
+				</div>
+				<div class="talbe_warp">
+					<table id="btrTable"></table>
+				</div>
+			</div>
+			<div class="btns">
+				<button class="btn btn-primary js-first-next">下一步</button>
+			</div>
+		</div>
+		<div class="add_content_warp">
+			<div class="add_title">选择车辆</div>
+			<div class="content_box tc vmiddle" >
+				<div class="carNo_warp js-carNo-warp ">
+					<div class="carNo">
+						<div class="radio_check">
+							<i class="radio_check_icon"></i>
+							<input type="radio" name="" id="" value="" />
+						</div>
+						<div class="carNo_word">京B01234</div>
+					</div>
+					<div class="carNo">
+						<div class="radio_check">
+							<i class="radio_check_icon"></i>
+							<input type="radio" name="" id="" value="" />
+						</div>
+						<div class="carNo_word">京B01234</div>
+					</div>
+				</div>
+			</div>
+			<div class="btns">
+				<button class="btn btn-primary js-second-next">下一步</button>
+			</div>
+		</div>
+		<div class="add_content_warp">
+			<div class="add_title">选择车辆</div>
+			<div class="error_warp content_box">
+				<img src="../../resources/images/fail.png" />
+				<p class="error_tip">由于该会员尚未登记车牌，无法预约，请会员自行登记车牌后再预约活动</p>
+			</div>
+		</div>
+		<div class="add_content_warp">
+			<div class="success_warp">
+				<img src="../../resources/images/finished.png" alt="" class="success_icon" />
+				<p class="success_tip">预保养成功</p>
+				<div class="success_info">
+					<p>手机号:<i class="js-phone"></i></p>
+					<p>预约车辆：<i class="js-success-carNo"></i></p>
+					<p>预约日期：<i class="js-date"></i></p>
+					<p>预约时段:<i class="js-hour"></i></p>
+				</div>
+			</div>
+			<div class="btns">
+				<button class="btn btn-primary js-success">完成</button>
+			</div>
+		</div>
+		<script type="text/javascript" src="../../resources/require.js"></script>
+		<script type="text/javascript" src="../../resources/modules/maintenance/add.js"></script>
+	</body>
+
+</html>

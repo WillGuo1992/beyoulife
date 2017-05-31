@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>票券统计</title>
+		<link rel="stylesheet" type="text/css" href="../../resources/css/base.css" />
+		<style type="text/css">
+			body {
+				background-color: #EEF0F1;
+			}
+			
+			.coupon_detail {
+				padding: 16px 30px;
+				background-color: #FFF;
+				margin: 10px 30px;
+			}
+			
+			.coupon_detail table {
+				display: block;
+			}
+			
+			.coupon_detail table td {
+				width: 33.33%;
+			}
+			
+			.coupon_detail table td {
+				padding: 8px 0;
+			}
+			
+			.content_warp {
+				margin: 0 30px 10px 30px;
+			}
+			
+			.item_group {
+				background-color: #FFF;
+			}
+			.t_info_group {
+				float: left;
+				width: 50%;
+				text-align: center;
+				margin-top: 7px;
+			}
+			.t_info_icon {
+				display: inline-block;
+				width: 55px;
+				height: 55px;
+				border-radius: 50%;
+				background-color: #2E86C0;
+				background-position: center;
+				background-repeat: no-repeat;
+			}
+			.t_info_icon.icon1 {
+				background-image: url(../../resources/images/cardcount.png);
+			}
+			
+			.t_info_icon.icon2 {
+				background-image: url(../../resources/images/lqcount.png);
+			}
+			
+			.t_info_icon.icon3 {
+				background-image: url(../../resources/images/usercount.png);
+			}
+			
+			.t_info_icon.icon4 {
+				background-image: url(../../resources/images/hxcount.png);
+			}
+			
+			.t_info_txt {
+				line-height: 19px;
+			}
+			
+			.t_info_number {
+				color: #2E86C0;
+				font-size: 20px;
+				font-weight: bold;
+			}
+			
+			.item_group .header {
+				height: 30px;
+				line-height: 30px;
+				padding: 0 5px;
+				background: #fafafa;
+				font-weight: bold;
+			}
+			
+			.box_left_top {
+				background-color: #FFF;
+			}
+			
+			.w495 {
+				width: 49.5%;
+			}
+			
+			.wp35 {
+				width: 35%;
+			}
+			
+			.wp64 {
+				width: 64%;
+			}
+			
+			.h430 {
+				height: 430px;
+			}
+			
+			.h230 {
+				height: 230px;
+			}
+			
+			.h200 {
+				height: 200px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="coupon_detail">
+			<table>
+				<tr>
+					<td>商户名称：<span>比如世界购物中心</span></td>
+					<td>票券标题：<span>五等奖兑换券</span></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>票券类型：<span>兑换券</span></td>
+					<td>优惠内容：<span>鸡尾酒2杯</span></td>
+					<td>创建时间：<span>2016-09-21 13:38:45</span></td>
+				</tr>
+			</table>
+		</div>
+		<div class="content_warp">
+			<div class="top_warp mb10 of">
+				<div class="box_left fl wp35">
+					<div class="box_left_top of">
+						<div class="t_info_group">
+							<span class="t_info_icon icon1"></span>
+							<p class="t_info_txt">票券投放总数</p>
+							<p class="t_info_number">20</p>
+						</div>
+						<div class="t_info_group">
+							<span class="t_info_icon icon2"></span>
+							<p class="t_info_txt">已领取票券数</p>
+							<p class="t_info_number">20</p>
+						</div>
+						<div class="t_info_group">
+							<span class="t_info_icon icon3"></span>
+							<p class="t_info_txt">领取票券用户数</p>
+							<span class="t_info_number">18</span>
+						</div>
+						<div class="t_info_group">
+							<span class="t_info_icon icon4"></span>
+							<p class="t_info_txt">已核销票券数</p>
+							<p class="t_info_number">6</p>
+						</div>
+					</div>
+					<div class="box_left_botom mt10">
+						<div class="item_group">
+							<div class="header">票券统计</div>
+							<div class="content h200"></div>
+						</div>
+					</div>
+				</div>
+				<div class="box_right fr wp64">
+					<div class="item_group">
+						<div class="header">票券已领取、领取用户数、已核销数据统计</div>
+						<div class="content h430"></div>
+					</div>
+				</div>
+			</div>
+			<div class="bottom_warp of">
+				<div class="item_group fl w495">
+					<div class="header">领取用户所在区域 TOP10 </div>
+					<div class="content h200"></div>
+				</div>
+				<div class="item_group fr w495">
+					<div class="header">领取用户性别分布</div>
+					<div class="content h200"></div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="../../resources/require.js"></script>
+		<script type="text/javascript" src="../../resources/modules/coupon/index.js"></script>
+	</body>
+</html>

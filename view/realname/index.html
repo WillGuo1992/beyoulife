@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta http-equiv="Cache-Control" content="no-cache">
+		<link rel="stylesheet" type="text/css" href="../../resources/css/base.css" />
+		<link rel="stylesheet" type="text/css" href="../../resources/libs/bootstrap/css/bootstrap.css" />
+		<link rel="stylesheet" type="text/css" href="../../resources/libs/bootstrap/bootstrap-table/bootstrap-table.css" />
+		<link rel="stylesheet" type="text/css" href="../../resources/css/easydropdown.flat.css" />
+		<link rel="stylesheet" type="text/css" href="../../resources/css/mobilecoupon.css" />
+		<link rel="stylesheet" type="text/css" href="../../resources/css/common.css" />
+		<title>优惠券管理</title>
+		<style type="text/css">
+			.realname_info_warp {
+				display: none;
+				padding: 10px;
+			}
+			.bars{
+				width: 100%;
+			}
+			.realname_info_warp table td {
+				text-align: left;
+				padding: 10px 5px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!-- 搜索容器-->
+		<div class="search-panel" id="sForm">
+			<form class="form-inline tl">
+				<div class="form-group">
+					<label for="card_no">手机号：</label>
+					<input type="text" class="form-control" id="store" v-model='form.phone' placeholder="关键字">
+				</div>
+				<div class="form-group">
+					<label for="card_no">姓名：</label>
+					<input type="text" class="form-control" v-model="form.realname" id="title_keyword" placeholder="关键字">
+				</div>
+				<div class="form-group">
+					<span class="btn btn-primary btn-after-icon icon-search" v-on:click="search">查询</span>
+					<span class="btn btn-primary js-reset btn-after-icon icon-rest" v-on:click="reset">重置</span>
+				</div>
+			</form>
+		</div>
+		<!--表格容器-->
+		<div class="table-panel">
+			<div class="table_toolbar">
+				<span class="btn btn-primary mr10 js-del fl">删除</span>
+				<span class="btn btn-primary js-add fr">新建实名认证</span>
+			</div>
+			<table id="btrTable"></table>
+		</div>
+		<div class="realname_info_warp">
+			<table>
+				<tr>
+					<td width="100px">手机号码<i class="red">*</i>：</td>
+					<td class="js-view-phone"></td>
+				</tr>
+				<tr>
+					<td>真实姓名<i class="red">*</i>：</td>
+					<td class="js-view-realname"></td>
+				</tr>
+				<tr>
+					<td>性别<i class="red">*</i>：</td>
+					<td class="js-view-sex"></td>
+				</tr>
+				<tr>
+					<td>证件类型<i class="red">*</i>：</td>
+					<td class="js-view-cardtype"></td>
+				</tr>
+				<tr>
+					<td>证件号码<i class="red">*</i>：</td>
+					<td class="js-view-idcard"></td>
+				</tr>
+				<tr>
+					<td>认证时间：</td>
+					<td class="js-view-addtime"></td>
+				</tr>
+				<tr>
+					<td>更新时间：</td>
+					<td class="js-view-updatetime"></td>
+				</tr>
+			</table>
+		</div>
+		<script type="text/javascript" src="../../resources/require.js"></script>
+		<script type="text/javascript" src="../../resources/modules/realname/index.js"></script>
+	</body>
+
+</html>

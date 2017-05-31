@@ -1,0 +1,101 @@
+.loginbg {
+	background: url(../images/bg.png) center no-repeat;
+	background-size: 100% 100%;
+}
+
+
+/*居中*/
+
+.pos:after {
+	display: inline-block;
+	height: 100%;
+	content: "";
+	width: 0;
+	vertical-align: middle;
+}
+
+.login-containter {
+	background: rgba(255, 255, 255, .7);
+	box-shadow: 0px 0px 8px rgba(0, 0, 0, .4);
+	position: fixed;
+	height: 450px;
+	width: 800px;
+	left: 50%;
+	top: 50%;
+	margin-top: -225px;
+	margin-left: -400px;
+	z-index: 1;
+	border-radius: 5px;
+	text-align: center;
+}
+
+.site-info,
+.login-info {
+	display: inline-block;
+	vertical-align: middle;
+	height: 270px;
+	text-align: center;
+	width: 40%;
+	margin-top: 85px;
+}
+
+.logo {
+	display: inline-block;
+	height: 92px;
+	width: 280px;
+	margin-top: 30px;
+	background: url(../images/LOGO.png) center no-repeat;
+	background-size: 100% 100%;
+}
+
+.site-info h3 {
+	font-size: 28px;
+	color: #333;
+	font-weight: 600;
+	text-align: center;
+	line-height: 1;
+	padding: 0;
+}
+
+.qrcode {}
+
+.user-login {
+	display: none;
+}
+
+.uname {
+	color: #009CDA;
+	margin-bottom: 20px;
+}
+
+.avatar {
+	display: inline-block;
+	width: 150px;
+	height: 150px;
+	margin: 20px 0 10px 0;
+	background: url(../images/avath.png) center no-repeat;
+	background-size: 100%;
+}
+
+.qrcode-con {
+	display: inline-block;
+	width: 201px;
+	height: 201px;
+	margin: 20px 0 25px 0;
+}
+
+.login-error {
+	display: none;
+}
+.fail-icon {
+	display: inline-block;
+	width: 100px;
+	height: 100px;
+	background: url(../images/fail.png) center no-repeat;
+	background-size: 100%;
+	margin-top: 20px;
+}
+.fail-info{
+	font-size: 20px;
+	margin-bottom: 20px;
+}
